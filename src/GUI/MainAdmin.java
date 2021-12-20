@@ -42,7 +42,7 @@ public class MainAdmin extends javax.swing.JFrame {
      */
     public MainAdmin() {
         initComponents();
-        setIconImage(new ImageIcon(getClass().getResource("/icon/thoat_1.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/icon/logo_vnu.jpg")).getImage());
         setUser();
         Timer dongho = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -203,7 +203,7 @@ public class MainAdmin extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(102, 0, 204));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bia.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logo_vnu1.png"))); // NOI18N
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);

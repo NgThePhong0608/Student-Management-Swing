@@ -4,9 +4,6 @@
  */
 package GUI;
 
-
-
-
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,13 +41,9 @@ public class MainSV extends javax.swing.JFrame {
      * Creates new form Main
      */
     public MainSV() {
-        
-       
+
         initComponents();
-        
-        
-        setIconImage(new ImageIcon(getClass().getResource("/icon/thoat_1.png")).getImage());
-        
+
         setUser();
         Timer dongho = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -210,16 +203,13 @@ public class MainSV extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 1014, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(50, 50, 50))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
         );
 
         jtpContent.addTab("Trang Chủ", jPanel6);
@@ -362,31 +352,31 @@ public class MainSV extends javax.swing.JFrame {
         jtpContent.removeAll();
         jtpContent.add("Tìm Kiếm", timkiem);
         timkiem.ResetForm();
-        
+
     }//GEN-LAST:event_jmTimKiemMouseClicked
 
     private void jmidoimatkhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmidoimatkhauActionPerformed
-        DoiMatKhau ld=new DoiMatKhau();
-           ld.show();
+        DoiMatKhau ld = new DoiMatKhau();
+        ld.show();
     }//GEN-LAST:event_jmidoimatkhauActionPerformed
 
     private void dangkyhocphanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dangkyhocphanMouseClicked
-       
-       frmDangKyHoc dkd =new frmDangKyHoc();
-       jtpContent.removeAll();
-       jtpContent.add("Đăng Ký Học",dkd);
-       
-       
+
+        frmDangKyHoc dkd = new frmDangKyHoc();
+        jtpContent.removeAll();
+        jtpContent.add("Đăng Ký Học", dkd);
+
+
     }//GEN-LAST:event_dangkyhocphanMouseClicked
 
     private void xemlichhocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xemlichhocMouseClicked
         try {
-            frmLichHoc ld=new frmLichHoc();
-           ld.show();
+            frmLichHoc ld = new frmLichHoc();
+            ld.show();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Lịch học trống !", "Vui lòng kiểm tra lại", JOptionPane.ERROR_MESSAGE);
         }
- 
+
     }//GEN-LAST:event_xemlichhocMouseClicked
 
     private void jtfCurrentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCurrentActionPerformed
@@ -394,15 +384,15 @@ public class MainSV extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfCurrentActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       this.setExtendedState(this.getExtendedState()|JFrame.MAXIMIZED_BOTH);
+        this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowOpened
 
     private void jmxemdiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmxemdiemMouseClicked
-       try {
-            frmXemDiem ld=new frmXemDiem();
-           ld.show();
+        try {
+            frmXemDiem ld = new frmXemDiem();
+            ld.show();
         } catch (Exception e) {
-              Logger.getLogger(frmXemDiem.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(frmXemDiem.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(this, "Điểm trống !", "Vui lòng kiểm tra lại", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jmxemdiemMouseClicked
@@ -411,7 +401,7 @@ public class MainSV extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-   
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -428,7 +418,7 @@ public class MainSV extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainSV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-       
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainSV().setVisible(true);

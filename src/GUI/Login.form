@@ -91,7 +91,7 @@
                       <Component id="Login_btn" pref="37" max="32767" attributes="0"/>
                       <Component id="Exit_btn" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

@@ -121,7 +121,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Login_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addComponent(Exit_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jLabel1.getAccessibleContext().setAccessibleParent(this);
@@ -189,37 +189,35 @@ public class Login extends javax.swing.JFrame {
         } else if (DBConnect.open()) {
             try {
                 boolean blean = true;
-                ps = DBConnect.cnn.prepareStatement("select fldTenDangNhap,fldMatKhau from tblNguoiDung ");
+                ps = DBConnect.cnn.prepareStatement("select fldTenDangNhap,fldMatKhau from tblNguoiDung");
                 rs = ps.executeQuery();
                 do {
                     rs.next();
                     String username = "" + rs.getString("fldTenDangNhap");
                     String password = "" + rs.getString("fldMatKhau");
 
-                    if (user.equals(username) && pass.equals(password) && username.substring(0, 2).equals("ad")) {
+                    if (user.equals(username) && pass.equals(password) && username.substring(0, 2).equalsIgnoreCase("ad")) {
 
                         nameLogin = username;
-                        if (password.equals("admin")) {
-                            thongBaoMatKhau = "Cảnh Báo : Mật Khẩu của bạn hiện đang là mật khẩu mặc định (123456 hoặc 654321) ! Vui lòng đổi mật khẩu mới !";
+                        if (password.equals(pass)) {
+                            thongBaoMatKhau = "Cảnh Báo : Mật Khẩu của bạn hiện đang là mật khẩu mặc định (12345 hoặc 54321) ! Vui lòng đổi mật khẩu mới !";
                         }
                         new MainAdmin().setVisible(true);
                         dispose();
                         break;
 
-                    } else if (user.equals(username) && pass.equals(password) && username.substring(0, 2).equals("SV")) {
+                    } else if (user.equals(username) && pass.equals(password) && username.substring(0, 2).equalsIgnoreCase("SV")) {
                         nameLogin = username;
-
-                        if (password.equals("123456") || password.equals("654321")) {
+                        if (password.equals("12345") || password.equals("54321")) {
                             thongBaoMatKhau = "Cảnh Báo : Mật Khẩu của bạn hiện đang là mật khẩu mặc định ! Vui lòng đổi mật khẩu mới !";
                         }
                         new MainSV().setVisible(true);
                         dispose();
                         break;
 
-                    } else if (user.equals(username) && pass.equals(password) && username.substring(0, 2).equals("GV")) {
+                    } else if (user.equals(username) && pass.equals(password) && username.substring(0, 2).equalsIgnoreCase("GV")) {
                         nameLogin = username;
-
-                        if (password.equals("654321") || password.equals("123456")) {
+                        if (password.equals("54321") || password.equals("12345")) {
                             thongBaoMatKhau = "Cảnh Báo : Mật Khẩu của bạn hiện đang là mật khẩu mặc định ! Vui lòng đổi mật khẩu mới !";
                         }
                         new MainGV().setVisible(true);
@@ -227,12 +225,9 @@ public class Login extends javax.swing.JFrame {
                         break;
 
                     } else if (username == null) {
-
                         JOptionPane.showMessageDialog(this, "Tên người dùng hoặc mật khẩu không hợp lệ\nXin vui lòng thử lại!", "Đăng nhập thấy bại!", JOptionPane.ERROR_MESSAGE);
                         this.resetForm();
-
                     }
-
                 } while (nameLogin != null);
 
             } catch (SQLException ex) {
