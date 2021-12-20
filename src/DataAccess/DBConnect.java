@@ -16,10 +16,11 @@ import java.util.logging.Logger;
  *
  * @author 20002 Dec 16, 2021 12:41:13 PM
  */
+
 public class DBConnect {
 
     public static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    public static String url = "jdbc:sqlserver://localhost:1433;databaseName=QLTH1";
+    public static String url = "jdbc:sqlserver://localhost:1433;databaseName=QLTH";
     public static String user = "sa";
     public static String pass = "12345";
     public static Connection cnn;
