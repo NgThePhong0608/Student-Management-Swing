@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author 20002 Dec 16, 2021 12:41:13 PM
+ * @author Nguyen The Phong Dec 16, 2021 12:41:13 PM
  */
 
 public class DBConnect {
