@@ -3,10 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Main;
+
 import GUI.Login;
+
 /**
  *
- * @author Nguyen The Phong
+ * @author Nguyen Dinh Quang
  */
 public class Main {
 
