@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Main;
-
+import GUI.Login;
 /**
  *
  * @author Nguyen The Phong
@@ -11,5 +11,7 @@ package Main;
 public class Main {
 
     public static void main(String[] args) {
+        Login login = new Login();
+        login.setVisible(true);
     }
 }
