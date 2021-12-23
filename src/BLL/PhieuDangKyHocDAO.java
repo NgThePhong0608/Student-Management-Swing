@@ -6,7 +6,6 @@
 package BLL;
 
 import DataAccess.DBConnect;
-import Entity.LopHocPhan;
 import Entity.PhieuDangKyHoc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

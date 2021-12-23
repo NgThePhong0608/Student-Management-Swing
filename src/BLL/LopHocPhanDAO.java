@@ -5,7 +5,6 @@
 package BLL;
 
 import DataAccess.DBConnect;
-import Entity.Khoa;
 import Entity.LopHocPhan;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
