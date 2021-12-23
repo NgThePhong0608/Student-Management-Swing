@@ -37,7 +37,7 @@ public class frmQuanLySinhVien extends javax.swing.JPanel {
     ArrayList<LopHoc> listLH = null;
     ArrayList<SinhVien> listSV = null;
     private DefaultComboBoxModel listHDT;
-
+    
     public frmQuanLySinhVien() {
         try {
             initComponents();
@@ -565,7 +565,7 @@ public class frmQuanLySinhVien extends javax.swing.JPanel {
             gioitinh2.setSelected(true);
             cGioiTinh.setSelected(false);
         }
-
+        jdNgaySinh.setText(jtbSinhVien.getValueAt(jtbSinhVien.getSelectedRow(), 5).toString());
         txtDiaChi.setText(jtbSinhVien.getValueAt(jtbSinhVien.getSelectedRow(), 6).toString());
         txtSoDienThoai.setText(jtbSinhVien.getValueAt(jtbSinhVien.getSelectedRow(), 7).toString());
 

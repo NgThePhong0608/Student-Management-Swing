@@ -25,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Anonymous
+ * @author Nguyen The Phong
  */
 public class frmQuanLyMonHoc extends javax.swing.JPanel {
 

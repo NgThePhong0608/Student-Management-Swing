@@ -4,9 +4,6 @@
  */
 package GUI;
 
-
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -44,7 +41,7 @@ public class MainGV extends javax.swing.JFrame {
      */
     public MainGV() {
         initComponents();
-        setIconImage(new ImageIcon(getClass().getResource("/icon/thoat_1.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/icon/logo_vnu.jpg")).getImage());
         setUser();
         Timer dongho = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -56,6 +53,9 @@ public class MainGV extends javax.swing.JFrame {
             }
         });
         dongho.start();
+        setIconImage(new ImageIcon(getClass().getResource("/icon/logo_vnu.jpg")).getImage());
+        setTitle("Hệ Thống Quản Lý Trường Học VNU Of Science");
+
     }
 
     private void setUser() {
@@ -344,8 +344,8 @@ public class MainGV extends javax.swing.JFrame {
     }//GEN-LAST:event_jmTimKiemMouseClicked
 
     private void jmidoimatkhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmidoimatkhauActionPerformed
-        DoiMatKhau ld=new DoiMatKhau();
-           ld.show();
+        DoiMatKhau ld = new DoiMatKhau();
+        ld.show();
     }//GEN-LAST:event_jmidoimatkhauActionPerformed
 
     private void jtfCurrentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCurrentActionPerformed
@@ -353,26 +353,26 @@ public class MainGV extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfCurrentActionPerformed
 
     private void xemlichdayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xemlichdayMouseClicked
-       
-       frmDangKyDay dkd =new frmDangKyDay();
-       jtpContent.removeAll();
-       jtpContent.add("Đăng Ký Dạy",dkd);
-       
-       
+
+        frmDangKyDay dkd = new frmDangKyDay();
+        jtpContent.removeAll();
+        jtpContent.add("Đăng Ký Dạy", dkd);
+
+
     }//GEN-LAST:event_xemlichdayMouseClicked
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         try {
-            frmLichDay ld=new frmLichDay();
-           ld.show();
+            frmLichDay ld = new frmLichDay();
+            ld.show();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Lịch dạy trống !", "Vui lòng kiểm tra lại", JOptionPane.ERROR_MESSAGE);
         }
- 
+
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-         this.setExtendedState(this.getExtendedState()|JFrame.MAXIMIZED_BOTH);
+        this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowOpened
 
     /**

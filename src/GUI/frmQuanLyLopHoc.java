@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Anonymous
+ * @author Phung Phuc Hau
  */
 public class frmQuanLyLopHoc extends javax.swing.JPanel {
 

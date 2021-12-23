@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Anonymous
+ * @author Dinh Kha Vy
  */
 public class TimKiemChoSV extends javax.swing.JPanel {
 

@@ -55,6 +55,9 @@ public class MainSV extends javax.swing.JFrame {
             }
         });
         dongho.start();
+        setIconImage(new ImageIcon(getClass().getResource("/icon/logo_vnu.jpg")).getImage());
+        setTitle("Hệ Thống Quản Lý Trường Học VNU Of Science");
+
     }
 
     private void setUser() {

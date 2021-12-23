@@ -40,7 +40,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author ND
+ * @author Phung Phuc Hau
  */
 public class frmXemDiem extends javax.swing.JFrame {
 

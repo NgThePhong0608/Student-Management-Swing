@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ND
+ * @author Phung Phung Hau
  */
 public class DoiMatKhau extends javax.swing.JFrame {
 

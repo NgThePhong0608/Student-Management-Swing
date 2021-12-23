@@ -39,7 +39,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Anonymous
+ * @author Nguyen Dinh Quang
  */
 public class frmDangKyDay extends javax.swing.JPanel {
 

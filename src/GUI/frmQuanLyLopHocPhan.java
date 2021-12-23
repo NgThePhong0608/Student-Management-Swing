@@ -27,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Anonymous
+ * @author Nguyen Dinh Quang
  */
 public class frmQuanLyLopHocPhan extends javax.swing.JPanel {
 
