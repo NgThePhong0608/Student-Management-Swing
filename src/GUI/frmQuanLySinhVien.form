@@ -207,7 +207,7 @@
                               </Group>
                               <Component id="menuMaLH" min="-2" pref="145" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="278" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -533,7 +533,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="362" max="-2" attributes="0"/>
-                  <Component id="jLabel11" pref="248" max="32767" attributes="0"/>
+                  <Component id="jLabel11" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="396" max="-2" attributes="0"/>
               </Group>
           </Group>
