@@ -166,7 +166,7 @@ public class SinhVienDAO implements ISinhVienDAO {
     
 
     public static void main(String[] args) {
-        System.out.println(new SinhVienDAO().findByMaLopHoc("DTVT65A").get(1).getTenSV());
+        System.out.println(new SinhVienDAO().findByMaLopHoc("CNTT65A").get(1).getTenSV());
     }
 
     @Override
