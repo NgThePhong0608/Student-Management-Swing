@@ -43,9 +43,9 @@ public class SinhVienDAO implements ISinhVienDAO {
                     sv.setSdt(rs.getString(8));
                     list.add(sv);
                     try {
-                        FileWriter writer = new FileWriter("sinhVien.csv");
-                        for (SinhVien sv1 : list) {
-                            writer.write(sv1.toString() + "\n");
+                        FileWriter writer = new FileWriter("sinhVien.csv", true);
+                        for (SinhVien sinhVien : list) {
+                            writer.write(sinhVien.toString() + "\n");
                         }
                         writer.close();
                     } catch (IOException e) {
@@ -133,7 +133,8 @@ public class SinhVienDAO implements ISinhVienDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("update tblSinhVien set fldTenSV =?, fldMaLop= ?,fldHeDaoTao=?,fldNgaySinh=?,fldGioiTinh=?,fldDiaChi = ?,fldSDT = ? where fldMaSV = ?");
+                ps = DBConnect.cnn.prepareStatement(
+                        "update tblSinhVien set fldTenSV =?, fldMaLop= ?,fldHeDaoTao=?,fldNgaySinh=?,fldGioiTinh=?,fldDiaChi = ?,fldSDT = ? where fldMaSV = ?");
 
                 ps.setString(1, gv.getTenSV());
                 ps.setString(2, gv.getMalop());

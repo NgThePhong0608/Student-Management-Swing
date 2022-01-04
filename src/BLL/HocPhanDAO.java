@@ -42,7 +42,7 @@ public class HocPhanDAO implements IHocPhanDAO {
 
                     list.add(hocPhan);
                     try {
-                        FileWriter writer = new FileWriter("hocPhan.csv");
+                        FileWriter writer = new FileWriter("hocPhan.csv", true);
                         for (HocPhan hocPhan1 : list) {
                             writer.write(hocPhan1.toString() + "\n");
                         }

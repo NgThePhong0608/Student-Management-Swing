@@ -40,7 +40,7 @@ public class LopHocDAO implements ILopHocDAO {
                     lh.setKhoahoc(rs.getString(5));
                     list.add(lh);
                     try {
-                        FileWriter writer = new FileWriter("lopHoc.csv");
+                        FileWriter writer = new FileWriter("lopHoc.csv", true);
                         for (LopHoc lopHoc : list) {
                             writer.write(lopHoc.toString() + "\n");
                         }

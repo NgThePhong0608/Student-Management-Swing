@@ -39,10 +39,10 @@ public class MonHocDAO implements IMonHocDAO {
                     mh.setHocKy(rs.getString(4));
                     mh.setSoTinChi(rs.getString(5));
                     mh.setHinhThucThi(rs.getString(6));
-                    mh.setBatBuoc(rs.getString(7));                  
+                    mh.setBatBuoc(rs.getString(7));
                     list.add(mh);
                     try {
-                        FileWriter writer = new FileWriter("monHoc.csv");
+                        FileWriter writer = new FileWriter("monHoc.csv", true);
                         for (MonHoc monHoc : list) {
                             writer.write(monHoc.toString() + "\n");
                         }
@@ -98,7 +98,8 @@ public class MonHocDAO implements IMonHocDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("insert into tblMonHoc(fldMaMH, fldTenMH,fldMaChuyenNganh, fldHocKy,fldSoTinChi,fldHinhThucThi,fldBatBuoc) values (?,?,?,?,?,?,?)");
+                ps = DBConnect.cnn.prepareStatement(
+                        "insert into tblMonHoc(fldMaMH, fldTenMH,fldMaChuyenNganh, fldHocKy,fldSoTinChi,fldHinhThucThi,fldBatBuoc) values (?,?,?,?,?,?,?)");
                 ps.setString(1, mh.getMaMH());
                 ps.setString(2, mh.getTenMH());
                 ps.setString(3, mh.getMaChuyenNganh());
@@ -126,7 +127,8 @@ public class MonHocDAO implements IMonHocDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("update tblMonHoc set fldTenMH=?,fldMaChuyenNganh=?,fldHocKy=?, fldSoTinChi =?,fldHinhThucThi =?,fldBatBuoc =? where fldMaMH =?");
+                ps = DBConnect.cnn.prepareStatement(
+                        "update tblMonHoc set fldTenMH=?,fldMaChuyenNganh=?,fldHocKy=?, fldSoTinChi =?,fldHinhThucThi =?,fldBatBuoc =? where fldMaMH =?");
                 ps.setString(1, mh.getTenMH());
                 ps.setString(2, mh.getMaChuyenNganh());
                 ps.setString(3, mh.getHocKy());
@@ -160,33 +162,33 @@ public class MonHocDAO implements IMonHocDAO {
 
     @Override
     public ArrayList<MonHoc> CheckID(String mamh) {
-      
-         ArrayList<MonHoc> list = null;
+
+        ArrayList<MonHoc> list = null;
         PreparedStatement psCheck = null;
         ResultSet rs = null;
         if (DBConnect.open()) {
             try {
                 psCheck = DBConnect.cnn.prepareStatement("select *from tblMonHoc where fldMaMH=?");
-               psCheck.setString(1, mamh);
+                psCheck.setString(1, mamh);
                 rs = psCheck.executeQuery();
-                    list = new ArrayList<MonHoc>();
-                    while (rs.next()) {
-                        MonHoc monHoc = new MonHoc();
-                        monHoc.setMaMH(rs.getString(1));
-                        list.add(monHoc);
-                    }
+                list = new ArrayList<MonHoc>();
+                while (rs.next()) {
+                    MonHoc monHoc = new MonHoc();
+                    monHoc.setMaMH(rs.getString(1));
+                    list.add(monHoc);
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(MonHocDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }finally{
-            DBConnect.close(psCheck, rs);
+            } finally {
+                DBConnect.close(psCheck, rs);
             }
         }
-        return  list;
+        return list;
     }
 
     @Override
     public ArrayList<MonHoc> findMonHocByMaChuyenNganh(String maCN) {
-         ArrayList<MonHoc> list = null;
+        ArrayList<MonHoc> list = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         if (DBConnect.open()) {

@@ -39,7 +39,7 @@ public class KhoaDAO implements IKhoaDAO {
                     k.setSdt(rs.getString(3));
                     list.add(k);
                     try {
-                        FileWriter writer = new FileWriter("khoa.csv");
+                        FileWriter writer = new FileWriter("khoa.csv", true);
                         for (Khoa khoa : list) {
                             writer.write(khoa.toString() + "\n");
                         }

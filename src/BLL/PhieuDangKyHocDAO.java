@@ -27,7 +27,8 @@ public class PhieuDangKyHocDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("insert into tblPhieuDangKyHoc(fldMaLHP,fldMaSV,fldHocKy,fldNamHoc,fldNgayDangKy) values(?,?,?,?,?)");
+                ps = DBConnect.cnn.prepareStatement(
+                        "insert into tblPhieuDangKyHoc(fldMaLHP,fldMaSV,fldHocKy,fldNamHoc,fldNgayDangKy) values(?,?,?,?,?)");
                 ps.setString(1, dkd.getMaLHP());
                 ps.setString(2, dkd.getMaSV());
                 ps.setString(3, dkd.getHocKy());
@@ -78,7 +79,7 @@ public class PhieuDangKyHocDAO {
                     dkd.setNgayDangKy(rs.getString(5));
                     list.add(dkd);
                     try {
-                        FileWriter writer = new FileWriter("dangKyHoc.csv");
+                        FileWriter writer = new FileWriter("dangKyHoc.csv", true);
                         for (PhieuDangKyHoc dangKyHoc : list) {
                             writer.write(dangKyHoc.toString() + "\n");
                         }

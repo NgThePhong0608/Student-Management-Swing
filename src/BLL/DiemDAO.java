@@ -45,7 +45,7 @@ public class DiemDAO implements IDiemDAO {
 
                     list.add(bd);
                     try {
-                        FileWriter writer = new FileWriter("diem.csv");
+                        FileWriter writer = new FileWriter("diem.csv", true);
                         for (Diem diem : list) {
                             writer.write(diem.toString() + "\n");
                         }

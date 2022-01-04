@@ -42,9 +42,9 @@ public class LopHocPhanDAO implements ILopHocPhanDAO {
                     lhp.setNgayThi(rs.getString(11));
                     list.add(lhp);
                     try {
-                        FileWriter writer = new FileWriter("lopHocPhan.csv");
-                        for (LopHocPhan lopHocPhan : list) {
-                            writer.write(lopHocPhan.toString());
+                        FileWriter writer = new FileWriter("lopHocPhan.csv", true);
+                        for (LopHocPhan lopHoc : list) {
+                            writer.write(lopHoc.toString() + "\n");
                         }
                         writer.close();
                     } catch (IOException e) {
@@ -102,7 +102,8 @@ public class LopHocPhanDAO implements ILopHocPhanDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("insert into tblLopHP(fldMaLHP,fldMaHP,fldMaMH,fldMaKhoa,fldTietHoc,fldPhongHoc,fldThu,fldSiSo,fldHocKy,fldNamHoc,fldNgayThi) values(?,?,?,?,?,?,?,?,?,?,?)");
+                ps = DBConnect.cnn.prepareStatement(
+                        "insert into tblLopHP(fldMaLHP,fldMaHP,fldMaMH,fldMaKhoa,fldTietHoc,fldPhongHoc,fldThu,fldSiSo,fldHocKy,fldNamHoc,fldNgayThi) values(?,?,?,?,?,?,?,?,?,?,?)");
                 ps.setString(1, lhp.getMaLHP());
                 ps.setString(2, lhp.getMaHP());
                 ps.setString(3, lhp.getMaMH());
@@ -133,7 +134,8 @@ public class LopHocPhanDAO implements ILopHocPhanDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("update tblLopHP set fldMaHP = ?,fldMaMH=?, fldMaKhoa = ?, fldTietHoc = ?, fldPhongHoc = ?, fldThu = ?, fldSiSo = ?,fldHocKy =?, fldNamHoc = ?,fldNgayThi= ? where fldMaLHP = ?");
+                ps = DBConnect.cnn.prepareStatement(
+                        "update tblLopHP set fldMaHP = ?,fldMaMH=?, fldMaKhoa = ?, fldTietHoc = ?, fldPhongHoc = ?, fldThu = ?, fldSiSo = ?,fldHocKy =?, fldNamHoc = ?,fldNgayThi= ? where fldMaLHP = ?");
 
                 ps.setString(1, lhp.getMaHP());
                 ps.setString(2, lhp.getMaMH());
