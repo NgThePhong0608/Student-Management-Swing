@@ -46,4 +46,10 @@ public class Khoa {
     public void setSdt(String sdt) {
         this.sdt = sdt;
     }
+
+    @Override
+    public String toString() {
+        return "Khoa: " + makhoa + ", " + tenkhoa + ", " + sdt;
+    }
+
 }

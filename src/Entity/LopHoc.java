@@ -66,4 +66,10 @@ public class LopHoc {
     public void setKhoahoc(String khoahoc) {
         this.khoahoc = khoahoc;
     }
+
+    @Override
+    public String toString() {
+        return "LopHoc: " + malop + ", " + tenlop + ", " + machuyennganh + ", " + siso + ", " + khoahoc;
+    }
+
 }

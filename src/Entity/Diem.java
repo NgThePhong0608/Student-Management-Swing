@@ -22,7 +22,8 @@ public class Diem {
     public Diem() {
     }
 
-    public Diem(String maLop, String maSV, String maMH, String diemTK, String diemGK, String diemCK, float diemTB, String xepLoai) {
+    public Diem(String maLop, String maSV, String maMH, String diemTK, String diemGK, String diemCK, float diemTB,
+            String xepLoai) {
         this.maLop = maLop;
         this.maSV = maSV;
         this.maMH = maMH;
@@ -96,4 +97,11 @@ public class Diem {
     public void setXepLoai(String xepLoai) {
         this.xepLoai = xepLoai;
     }
+
+    @Override
+    public String toString() {
+        return "Diem: " + maLop + ", " + maSV + ", " + maMH + ", diemTK=" + diemTK + ", diemGK=" + diemGK + ", diemCK="
+                + diemCK + ", diemTB=" + diemTB + ", xepLoai=" + xepLoai;
+    }
+
 }

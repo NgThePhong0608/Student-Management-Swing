@@ -67,4 +67,15 @@ public class HocPhan {
     public void setHocPhanYeuCau(String hocPhanYeuCau) {
         this.hocPhanYeuCau = hocPhanYeuCau;
     }
+
+    @Override
+    public String toString() {
+        return "Hoc phan: " +
+                " " + getMaHP() + "'" +
+                ", " + getTenHP() + "'" +
+                ", " + getMaMH() + "'" +
+                ", " + getTenKhoa() + "'" +
+                ", " + getHocPhanYeuCau() + "'";
+    }
+
 }

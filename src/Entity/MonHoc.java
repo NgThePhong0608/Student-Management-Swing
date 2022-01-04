@@ -21,7 +21,8 @@ public class MonHoc {
     public MonHoc() {
     }
 
-    public MonHoc(String maMH, String tenMH, String maChuyenNganh, String hocKy, String soTinChi, String hinhThucThi, String batBuoc) {
+    public MonHoc(String maMH, String tenMH, String maChuyenNganh, String hocKy, String soTinChi, String hinhThucThi,
+            String batBuoc) {
         this.maMH = maMH;
         this.tenMH = tenMH;
         this.maChuyenNganh = maChuyenNganh;
@@ -86,4 +87,11 @@ public class MonHoc {
     public void setHinhThucThi(String hinhThucThi) {
         this.hinhThucThi = hinhThucThi;
     }
+
+    @Override
+    public String toString() {
+        return "MonHoc:" + maMH + ", " + tenMH + ", " + maChuyenNganh + ", " + hocKy + ", " + soTinChi + ", "
+                + hinhThucThi + ", " + batBuoc;
+    }
+
 }

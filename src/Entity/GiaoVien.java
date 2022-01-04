@@ -22,7 +22,8 @@ public class GiaoVien {
     public GiaoVien() {
     }
 
-    public GiaoVien(String maGV, String tenGV, String maChuyenNganh, String ngaySinh, boolean gioiTinh, String email, String diaChi, String sdt) {
+    public GiaoVien(String maGV, String tenGV, String maChuyenNganh, String ngaySinh, boolean gioiTinh, String email,
+            String diaChi, String sdt) {
         this.maGV = maGV;
         this.tenGV = tenGV;
         this.maChuyenNganh = maChuyenNganh;
@@ -95,6 +96,12 @@ public class GiaoVien {
 
     public void setSdt(String sdt) {
         this.sdt = sdt;
+    }
+
+    @Override
+    public String toString() {
+        return "GiaoVien: " + maGV + ", " + tenGV + ", " + maChuyenNganh + ", " + ngaySinh + ", " + email + ", "
+                + diaChi + ", " + sdt;
     }
 
 }

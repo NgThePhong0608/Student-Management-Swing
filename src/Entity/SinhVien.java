@@ -22,7 +22,8 @@ public class SinhVien {
     public SinhVien() {
     }
 
-    public SinhVien(String maSV, String tenSV, String malop, String heDaoTao, String ngaySinh, boolean gioiTinh, String diaChi, String sdt) {
+    public SinhVien(String maSV, String tenSV, String malop, String heDaoTao, String ngaySinh, boolean gioiTinh,
+            String diaChi, String sdt) {
         this.maSV = maSV;
         this.tenSV = tenSV;
         this.malop = malop;
@@ -97,4 +98,9 @@ public class SinhVien {
         this.sdt = sdt;
     }
 
+    @Override
+    public String toString() {
+        return "Sinh Vien: " + this.getMaSV() + ", " + this.getTenSV() + ", " + this.getNgaySinh() + ", "
+                + this.getHeDaoTao() + "," + this.getMalop() + ", " + this.getSdt() + ", " + this.getDiaChi();
+    }
 }

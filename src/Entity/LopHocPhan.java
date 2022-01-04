@@ -25,7 +25,8 @@ public class LopHocPhan {
     public LopHocPhan() {
     }
 
-    public LopHocPhan(String maLHP, String maHP, String maMH, String maKhoa, String tietHoc, String phongHoc, String thu, String siSo, String hocKy, String namHoc, String ngayThi) {
+    public LopHocPhan(String maLHP, String maHP, String maMH, String maKhoa, String tietHoc, String phongHoc,
+            String thu, String siSo, String hocKy, String namHoc, String ngayThi) {
         this.maLHP = maLHP;
         this.maHP = maHP;
         this.maMH = maMH;
@@ -126,4 +127,11 @@ public class LopHocPhan {
     public void setNamHoc(String namHoc) {
         this.namHoc = namHoc;
     }
+
+    @Override
+    public String toString() {
+        return "LopHocPhan: " + maLHP + "," + maHP + ", " + maMH + "," + maKhoa + ", " + tietHoc + ", " + phongHoc
+                + ", " + thu + ", " + siSo + ", " + hocKy + ", " + namHoc + ", " + ngayThi;
+    }
+
 }

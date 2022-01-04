@@ -56,6 +56,11 @@ public class PhieuDangKyDay {
         this.ngayDangKy = ngayDangKy;
     }
 
+    @Override
+    public String toString() {
+        return "PhieuDangKyDay: " + maLHP + ", " + maGV + ", " + hocKy + ", " + namHoc + ", " + ngayDangKy;
+    }
+
     public PhieuDangKyDay(String maLHP, String maGV, String hocKy, String namHoc, String ngayDangKy) {
         this.maLHP = maLHP;
         this.maGV = maGV;

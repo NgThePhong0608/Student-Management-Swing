@@ -66,4 +66,10 @@ public class PhieuDangKyHoc {
 
     public PhieuDangKyHoc() {
     }
+
+    @Override
+    public String toString() {
+        return "PhieuDangKyHoc:" + maLHP + ", " + maSV + ", " + hocKy + ", " + namHoc + ", " + ngayDangKy;
+    }
+
 }
