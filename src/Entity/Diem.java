@@ -100,7 +100,8 @@ public class Diem {
 
     @Override
     public String toString() {
-        return "Diem: " + maLop + ", " + maSV + ", " + maMH + ", diemTK=" + diemTK + ", diemGK=" + diemGK + ", diemCK="
+        return "Diem: " + "Ma lop: " + maLop + ", " + maSV + ", " + maMH + ", diemTK=" + diemTK + ", diemGK=" + diemGK
+                + ", diemCK="
                 + diemCK + ", diemTB=" + diemTB + ", xepLoai=" + xepLoai;
     }
 
