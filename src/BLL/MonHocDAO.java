@@ -42,7 +42,7 @@ public class MonHocDAO implements IMonHocDAO {
                     mh.setBatBuoc(rs.getString(7));
                     list.add(mh);
                     try {
-                        FileWriter writer = new FileWriter("monHoc.csv", true);
+                        FileWriter writer = new FileWriter("monHoc.csv");
                         for (MonHoc monHoc : list) {
                             writer.write(monHoc.toString() + "\n");
                         }

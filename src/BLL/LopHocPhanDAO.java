@@ -42,7 +42,7 @@ public class LopHocPhanDAO implements ILopHocPhanDAO {
                     lhp.setNgayThi(rs.getString(11));
                     list.add(lhp);
                     try {
-                        FileWriter writer = new FileWriter("lopHocPhan.csv", true);
+                        FileWriter writer = new FileWriter("lopHocPhan.csv");
                         for (LopHocPhan lopHoc : list) {
                             writer.write(lopHoc.toString() + "\n");
                         }

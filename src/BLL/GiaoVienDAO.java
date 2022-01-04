@@ -43,7 +43,7 @@ public class GiaoVienDAO implements IGiaoVienDAO {
                     gv.setSdt(rs.getString(8));
                     list.add(gv);
                     try {
-                        FileWriter writer = new FileWriter("giangVien.csv", true);
+                        FileWriter writer = new FileWriter("giangVien.csv");
                         for (GiaoVien gv1 : list) {
                             writer.write(gv1.toString() + "\n");
                         }

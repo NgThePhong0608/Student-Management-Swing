@@ -39,7 +39,7 @@ public class ChuyenNganhDAO implements IChuyenNganhDAO {
                     cn.setMaKhoa(rs.getString(3));
                     list.add(cn);
                     try {
-                        FileWriter writer = new FileWriter("chuyenNganh.csv", true);
+                        FileWriter writer = new FileWriter("chuyenNganh.csv");
                         for (ChuyenNganh chuyenNganh1 : list) {
                             writer.write(chuyenNganh1.toString() + "\n");
                         }

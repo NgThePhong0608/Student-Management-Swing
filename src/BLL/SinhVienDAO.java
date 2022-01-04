@@ -43,9 +43,9 @@ public class SinhVienDAO implements ISinhVienDAO {
                     sv.setSdt(rs.getString(8));
                     list.add(sv);
                     try {
-                        FileWriter writer = new FileWriter("sinhVien.csv", true);
-                        for (SinhVien sinhVien : list) {
-                            writer.write(sinhVien.toString() + "\n");
+                        FileWriter writer = new FileWriter("sinhVien.csv");
+                        for (SinhVien sv1 : list) {
+                            writer.write(sv1.toString() + "\n");
                         }
                         writer.close();
                     } catch (IOException e) {
@@ -74,16 +74,16 @@ public class SinhVienDAO implements ISinhVienDAO {
                 rs = ps.executeQuery();
                 list = new ArrayList<SinhVien>();
                 while (rs.next()) {
-                    SinhVien gv = new SinhVien();
-                    gv.setMaSV(rs.getString(1));
-                    gv.setTenSV(rs.getString(2));
-                    gv.setMalop(rs.getString(3));
-                    gv.setHeDaoTao(rs.getString(4));
-                    gv.setNgaySinh(rs.getString(5));
-                    gv.setGioiTinh(rs.getBoolean(6));
-                    gv.setDiaChi(rs.getString(7));
-                    gv.setSdt(rs.getString(8));
-                    list.add(gv);
+                    SinhVien sv = new SinhVien();
+                    sv.setMaSV(rs.getString(1));
+                    sv.setTenSV(rs.getString(2));
+                    sv.setMalop(rs.getString(3));
+                    sv.setHeDaoTao(rs.getString(4));
+                    sv.setNgaySinh(rs.getString(5));
+                    sv.setGioiTinh(rs.getBoolean(6));
+                    sv.setDiaChi(rs.getString(7));
+                    sv.setSdt(rs.getString(8));
+                    list.add(sv);
 
                 }
             } catch (SQLException ex) {

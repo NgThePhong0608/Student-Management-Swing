@@ -78,7 +78,7 @@ public class PhieuDangKyDayDAO {
                     dkd.setNgayDangKy(rs.getString(5));
                     list.add(dkd);
                     try {
-                        FileWriter writer = new FileWriter("dangKyDay.csv", true);
+                        FileWriter writer = new FileWriter("dangKyDay.csv");
                         for (PhieuDangKyDay dangKyDay : list) {
                             writer.write(dangKyDay.toString() + "\n");
                         }

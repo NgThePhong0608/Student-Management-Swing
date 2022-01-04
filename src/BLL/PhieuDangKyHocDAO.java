@@ -79,7 +79,7 @@ public class PhieuDangKyHocDAO {
                     dkd.setNgayDangKy(rs.getString(5));
                     list.add(dkd);
                     try {
-                        FileWriter writer = new FileWriter("dangKyHoc.csv", true);
+                        FileWriter writer = new FileWriter("dangKyHoc.csv");
                         for (PhieuDangKyHoc dangKyHoc : list) {
                             writer.write(dangKyHoc.toString() + "\n");
                         }
