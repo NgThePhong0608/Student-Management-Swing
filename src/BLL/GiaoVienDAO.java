@@ -6,6 +6,8 @@ package BLL;
 
 import DataAccess.DBConnect;
 import Entity.GiaoVien;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,6 +42,16 @@ public class GiaoVienDAO implements IGiaoVienDAO {
                     gv.setDiaChi(rs.getString(7));
                     gv.setSdt(rs.getString(8));
                     list.add(gv);
+                    try {
+                        FileWriter writer = new FileWriter("giangVien.csv");
+                        for (GiaoVien gv1 : list) {
+                            writer.write(gv1.toString() + "\n");
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(GiaoVienDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -120,7 +132,8 @@ public class GiaoVienDAO implements IGiaoVienDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("update tblGiaoVien set fldTenGV =?, fldMaChuyenNganh= ?,fldNgaySinh=?,fldGioiTinh=?, fldEmail = ?, fldDiaChi = ?,fldSDT = ? where fldMaGV = ?");
+                ps = DBConnect.cnn.prepareStatement(
+                        "update tblGiaoVien set fldTenGV =?, fldMaChuyenNganh= ?,fldNgaySinh=?,fldGioiTinh=?, fldEmail = ?, fldDiaChi = ?,fldSDT = ? where fldMaGV = ?");
 
                 ps.setString(1, gv.getTenGV());
                 ps.setString(2, gv.getMaChuyenNganh());

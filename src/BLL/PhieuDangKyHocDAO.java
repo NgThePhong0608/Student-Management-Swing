@@ -7,6 +7,8 @@ package BLL;
 
 import DataAccess.DBConnect;
 import Entity.PhieuDangKyHoc;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -75,6 +77,16 @@ public class PhieuDangKyHocDAO {
                     dkd.setNamHoc(rs.getString(4));
                     dkd.setNgayDangKy(rs.getString(5));
                     list.add(dkd);
+                    try {
+                        FileWriter writer = new FileWriter("dangKyHoc.csv");
+                        for (PhieuDangKyHoc dangKyHoc : list) {
+                            writer.write(dangKyHoc.toString() + "\n");
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(LopHocPhanDAO.class.getName()).log(Level.SEVERE, null, ex);

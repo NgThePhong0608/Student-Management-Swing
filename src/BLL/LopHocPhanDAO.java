@@ -6,6 +6,8 @@ package BLL;
 
 import DataAccess.DBConnect;
 import Entity.LopHocPhan;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,6 +41,16 @@ public class LopHocPhanDAO implements ILopHocPhanDAO {
                     lhp.setNamHoc(rs.getString(10));
                     lhp.setNgayThi(rs.getString(11));
                     list.add(lhp);
+                    try {
+                        FileWriter writer = new FileWriter("lopHocPhan.csv");
+                        for (LopHocPhan lopHocPhan : list) {
+                            writer.write(lopHocPhan.toString());
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(LopHocPhanDAO.class.getName()).log(Level.SEVERE, null, ex);

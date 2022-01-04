@@ -4,6 +4,8 @@
  */
 package BLL;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import DataAccess.DBConnect;
 import Entity.LopHoc;
 import java.sql.PreparedStatement;
@@ -37,6 +39,16 @@ public class LopHocDAO implements ILopHocDAO {
                     lh.setSiSo(rs.getString(4));
                     lh.setKhoahoc(rs.getString(5));
                     list.add(lh);
+                    try {
+                        FileWriter writer = new FileWriter("lopHoc.csv");
+                        for (LopHoc lopHoc : list) {
+                            writer.write(lopHoc.toString() + "\n");
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(LopHocDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -82,7 +94,8 @@ public class LopHocDAO implements ILopHocDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("insert into tblLop(fldMaLop,fldTenLop,fldMaChuyenNganh,fldSiSo,fldKhoaHoc) values(?,?,?,?,?)");
+                ps = DBConnect.cnn.prepareStatement(
+                        "insert into tblLop(fldMaLop,fldTenLop,fldMaChuyenNganh,fldSiSo,fldKhoaHoc) values(?,?,?,?,?)");
                 ps.setString(1, lh.getMalop());
                 ps.setString(2, lh.getTenlop());
                 ps.setString(3, lh.getMaChuyenNganh());
@@ -107,7 +120,8 @@ public class LopHocDAO implements ILopHocDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("update tblLop set fldTenLop = ?,fldMaChuyenNganh=?,fldSiSo=?, fldKhoaHoc = ? where fldMaLop = ?");
+                ps = DBConnect.cnn.prepareStatement(
+                        "update tblLop set fldTenLop = ?,fldMaChuyenNganh=?,fldSiSo=?, fldKhoaHoc = ? where fldMaLop = ?");
 
                 ps.setString(1, lh.getTenlop());
                 ps.setString(2, lh.getMaChuyenNganh());

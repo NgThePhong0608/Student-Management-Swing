@@ -6,6 +6,9 @@ package BLL;
 
 import DataAccess.DBConnect;
 import Entity.Khoa;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +38,16 @@ public class KhoaDAO implements IKhoaDAO {
                     k.setTenkhoa(rs.getString(2));
                     k.setSdt(rs.getString(3));
                     list.add(k);
+                    try {
+                        FileWriter writer = new FileWriter("khoa.csv");
+                        for (Khoa khoa : list) {
+                            writer.write(khoa.toString() + "\n");
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(KhoaDAO.class.getName()).log(Level.SEVERE, null, ex);

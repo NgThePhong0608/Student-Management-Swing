@@ -7,6 +7,8 @@ package BLL;
 
 import DataAccess.DBConnect;
 import Entity.PhieuDangKyDay;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +27,8 @@ public class PhieuDangKyDayDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("insert into tblPhieuDangKyDay(fldMaLHP,fldMaGV,fldHocKy,fldNamHoc,fldNgayDangKy) values(?,?,?,?,?)");
+                ps = DBConnect.cnn.prepareStatement(
+                        "insert into tblPhieuDangKyDay(fldMaLHP,fldMaGV,fldHocKy,fldNamHoc,fldNgayDangKy) values(?,?,?,?,?)");
                 ps.setString(1, dkd.getMaLHP());
                 ps.setString(2, dkd.getMaGV());
                 ps.setString(3, dkd.getHocKy());
@@ -74,6 +77,16 @@ public class PhieuDangKyDayDAO {
                     dkd.setNamHoc(rs.getString(4));
                     dkd.setNgayDangKy(rs.getString(5));
                     list.add(dkd);
+                    try {
+                        FileWriter writer = new FileWriter("dangKyDay.csv");
+                        for (PhieuDangKyDay dangKyDay : list) {
+                            writer.write(dangKyDay.toString() + "\n");
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(LopHocPhanDAO.class.getName()).log(Level.SEVERE, null, ex);

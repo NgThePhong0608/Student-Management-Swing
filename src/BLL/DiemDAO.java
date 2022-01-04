@@ -6,6 +6,8 @@ package BLL;
 
 import DataAccess.DBConnect;
 import Entity.Diem;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,6 +44,16 @@ public class DiemDAO implements IDiemDAO {
                     bd.setXepLoai(rs.getString(8));
 
                     list.add(bd);
+                    try {
+                        FileWriter writer = new FileWriter("diem.csv");
+                        for (Diem diem : list) {
+                            writer.write(diem.toString() + "\n");
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(DiemDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -117,7 +129,8 @@ public class DiemDAO implements IDiemDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("update tblDiem set fldDiemTK = ?,fldDiemGK = ?,fldDiemCK = ?,fldDiemTB = ?,fldXepLoai=? where fldMaLop =? and fldMaSV =? and fldMaMH=?");
+                ps = DBConnect.cnn.prepareStatement(
+                        "update tblDiem set fldDiemTK = ?,fldDiemGK = ?,fldDiemCK = ?,fldDiemTB = ?,fldXepLoai=? where fldMaLop =? and fldMaSV =? and fldMaMH=?");
 
                 ps.setString(1, bd.getDiemTK());
                 ps.setString(2, bd.getDiemGK());

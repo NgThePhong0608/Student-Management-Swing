@@ -6,6 +6,8 @@ package BLL;
 
 import DataAccess.DBConnect;
 import Entity.MonHoc;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,10 +39,18 @@ public class MonHocDAO implements IMonHocDAO {
                     mh.setHocKy(rs.getString(4));
                     mh.setSoTinChi(rs.getString(5));
                     mh.setHinhThucThi(rs.getString(6));
-                    mh.setBatBuoc(rs.getString(7));
-//                   
-
+                    mh.setBatBuoc(rs.getString(7));                  
                     list.add(mh);
+                    try {
+                        FileWriter writer = new FileWriter("monHoc.csv");
+                        for (MonHoc monHoc : list) {
+                            writer.write(monHoc.toString() + "\n");
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(MonHocDAO.class.getName()).log(Level.SEVERE, null, ex);

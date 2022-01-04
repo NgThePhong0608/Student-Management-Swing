@@ -6,6 +6,9 @@ package BLL;
 
 import DataAccess.DBConnect;
 import Entity.ChuyenNganh;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +38,16 @@ public class ChuyenNganhDAO implements IChuyenNganhDAO {
                     cn.setTenChuyenNganh(rs.getString(2));
                     cn.setMaKhoa(rs.getString(3));
                     list.add(cn);
+                    try {
+                        FileWriter writer = new FileWriter("chuyenNganh.csv");
+                        for (ChuyenNganh chuyenNganh1 : list) {
+                            writer.write(chuyenNganh1.toString() + "\n");
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(ChuyenNganhDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,7 +87,8 @@ public class ChuyenNganhDAO implements IChuyenNganhDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("update tblChuyenNganh set fldTenChuyenNganh =?, fldMaKhoa = ? where fldMaChuyenNganh = ?");
+                ps = DBConnect.cnn.prepareStatement(
+                        "update tblChuyenNganh set fldTenChuyenNganh =?, fldMaKhoa = ? where fldMaChuyenNganh = ?");
 
                 ps.setString(1, ChuyenNganh.getTenChuyenNganh());
                 ps.setString(2, ChuyenNganh.getMaKhoa());

@@ -6,6 +6,9 @@ package BLL;
 
 import DataAccess.DBConnect;
 import Entity.HocPhan;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,6 +41,16 @@ public class HocPhanDAO implements IHocPhanDAO {
                     hocPhan.setHocPhanYeuCau(rs.getString(5));
 
                     list.add(hocPhan);
+                    try {
+                        FileWriter writer = new FileWriter("hocPhan.csv");
+                        for (HocPhan hocPhan1 : list) {
+                            writer.write(hocPhan1.toString() + "\n");
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(HocPhanDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -109,7 +122,8 @@ public class HocPhanDAO implements IHocPhanDAO {
         PreparedStatement ps = null;
         if (DBConnect.open()) {
             try {
-                ps = DBConnect.cnn.prepareStatement("update tblHocPhan set fldTenHP = ?,fldMaMH= ?,fldTenKhoa=?,fldHocPhanYeuCau=?  where fldMaHP = ?");
+                ps = DBConnect.cnn.prepareStatement(
+                        "update tblHocPhan set fldTenHP = ?,fldMaMH= ?,fldTenKhoa=?,fldHocPhanYeuCau=?  where fldMaHP = ?");
 
                 ps.setString(1, hp.getTenHP());
                 ps.setString(2, hp.getMaMH());

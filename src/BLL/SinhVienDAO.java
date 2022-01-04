@@ -6,6 +6,8 @@ package BLL;
 
 import DataAccess.DBConnect;
 import Entity.SinhVien;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,6 +42,16 @@ public class SinhVienDAO implements ISinhVienDAO {
                     sv.setDiaChi(rs.getString(7));
                     sv.setSdt(rs.getString(8));
                     list.add(sv);
+                    try {
+                        FileWriter writer = new FileWriter("sinhVien.csv");
+                        for (SinhVien sv1 : list) {
+                            writer.write(sv1.toString() + "\n");
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("An error occured");
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(SinhVienDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,10 +98,10 @@ public class SinhVienDAO implements ISinhVienDAO {
     @Override
     public SinhVien addNew(SinhVien sv) {
         PreparedStatement ps = null;
-       
+
         if (DBConnect.open()) {
             try {
-                
+
                 ps = DBConnect.cnn.prepareStatement("INSERT INTO tblSinhVien values (?,?,?,?,?,?,?,?)"
                         + "insert into tblNguoiDung values (?,?)");
                 ps.setString(1, sv.getMaSV());
@@ -100,8 +112,8 @@ public class SinhVienDAO implements ISinhVienDAO {
                 ps.setBoolean(6, sv.isGioiTinh());
                 ps.setString(7, sv.getDiaChi());
                 ps.setString(8, sv.getSdt());
-                ps.setString(9,sv.getMaSV());
-                ps.setString(10, "123456");                               
+                ps.setString(9, sv.getMaSV());
+                ps.setString(10, "123456");
                 int row = ps.executeUpdate();
                 if (row < 1) {
                     sv = null;
@@ -122,10 +134,10 @@ public class SinhVienDAO implements ISinhVienDAO {
         if (DBConnect.open()) {
             try {
                 ps = DBConnect.cnn.prepareStatement("update tblSinhVien set fldTenSV =?, fldMaLop= ?,fldHeDaoTao=?,fldNgaySinh=?,fldGioiTinh=?,fldDiaChi = ?,fldSDT = ? where fldMaSV = ?");
-                
+
                 ps.setString(1, gv.getTenSV());
-                ps.setString(2, gv.getMalop());              
-                ps.setString(3, gv.getHeDaoTao());              
+                ps.setString(2, gv.getMalop());
+                ps.setString(3, gv.getHeDaoTao());
                 ps.setString(4, gv.getNgaySinh());
                 ps.setBoolean(5, gv.isGioiTinh());
                 ps.setString(6, gv.getDiaChi());
@@ -135,7 +147,7 @@ public class SinhVienDAO implements ISinhVienDAO {
                 int row = ps.executeUpdate();
                 if (row < 1) {
                     gv = null;
-                } 
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(SinhVienDAO.class.getName()).log(Level.SEVERE, null, ex);
                 gv = null;
@@ -145,8 +157,9 @@ public class SinhVienDAO implements ISinhVienDAO {
         }
         return gv;
     }
-    public void deleteMaSV(String SinhVienID)throws SQLException,ClassNotFoundException{
-    PreparedStatement ps = null;
+
+    public void deleteMaSV(String SinhVienID) throws SQLException, ClassNotFoundException {
+        PreparedStatement ps = null;
         if (DBConnect.open()) {
             ps = DBConnect.cnn.prepareStatement("delete from tblSinhVien where fldMaSV= ?");
             ps.setString(1, SinhVienID);
@@ -154,8 +167,9 @@ public class SinhVienDAO implements ISinhVienDAO {
             DBConnect.close();
         }
     }
-    public void deleteUserSV(String SinhVienID)throws SQLException,ClassNotFoundException{
-    PreparedStatement ps = null;
+
+    public void deleteUserSV(String SinhVienID) throws SQLException, ClassNotFoundException {
+        PreparedStatement ps = null;
         if (DBConnect.open()) {
             ps = DBConnect.cnn.prepareStatement("delete from tblNguoiDung where fldTenDangNhap= ?");
             ps.setString(1, SinhVienID);
@@ -163,7 +177,6 @@ public class SinhVienDAO implements ISinhVienDAO {
             DBConnect.close();
         }
     }
-    
 
     public static void main(String[] args) {
         System.out.println(new SinhVienDAO().findByMaLopHoc("CNTT65A").get(1).getTenSV());
@@ -171,27 +184,27 @@ public class SinhVienDAO implements ISinhVienDAO {
 
     @Override
     public ArrayList<SinhVien> CheckMaSV(String magv) {
-      ArrayList<SinhVien> list = null;
+        ArrayList<SinhVien> list = null;
         PreparedStatement psCheck = null;
         ResultSet rs = null;
         if (DBConnect.open()) {
             try {
                 psCheck = DBConnect.cnn.prepareStatement("select *from tblSinhVien where fldMaSV=?");
-               psCheck.setString(1, magv);
+                psCheck.setString(1, magv);
                 rs = psCheck.executeQuery();
-                    list = new ArrayList<SinhVien>();
-                    while (rs.next()) {
-                        SinhVien sinhVien = new SinhVien();
-                        sinhVien.setMaSV(rs.getString(1));
-                        list.add(sinhVien);
-                    }
+                list = new ArrayList<SinhVien>();
+                while (rs.next()) {
+                    SinhVien sinhVien = new SinhVien();
+                    sinhVien.setMaSV(rs.getString(1));
+                    list.add(sinhVien);
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(SinhVienDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }finally{
-            DBConnect.close(psCheck, rs);
+            } finally {
+                DBConnect.close(psCheck, rs);
             }
         }
-        return  list;
+        return list;
     }
 
     @Override
