@@ -6,7 +6,7 @@ package Entity;
 
 /**
  *
- * @author 20002 Dec 16, 2021 12:36:41 PM
+ * @author Dinh Kha Vy
  */
 public class LopHoc {
 

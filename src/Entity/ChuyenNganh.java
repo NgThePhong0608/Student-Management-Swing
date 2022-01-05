@@ -6,7 +6,7 @@ package Entity;
 
 /**
  *
- * @author 20002 Dec 16, 2021 12:40:37 PM
+ * @author Dinh Kha Vy
  */
 public class ChuyenNganh {
 
@@ -50,7 +50,7 @@ public class ChuyenNganh {
 
     @Override
     public String toString() {
-        return "ChuyenNganh: " + maChuyenNganh + ", " +  tenChuyenNganh + ", " + maKhoa;
+        return "ChuyenNganh: " + maChuyenNganh + ", " + tenChuyenNganh + ", " + maKhoa;
     }
-    
+
 }
